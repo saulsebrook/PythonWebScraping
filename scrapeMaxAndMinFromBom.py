@@ -18,8 +18,6 @@ amendDetails = []
 for x in details:
     amendDetails.append(x.text.split('\n'))
 
-    
-    
 flat_list = [item for sublist in amendDetails for item in sublist] # Flattening a list of lists
 flat_list.pop(0)
 string2 = ' '.join(flat_list)    
@@ -47,6 +45,7 @@ print('\n\n')
 
 listofNames = ['Date/Time', 'Temp', 'App Temp', 'Dew Point', 'Rel Humidity', 'Delta-T', 'Wind Direction', 'Speed', 'Gust', 'Speed KTS', 'Gust KTS', 'Press QNH', 'Press MSL', 'Rain since 9am']
 
+# OrderedDict allows items to be added to dictionary in order
 weatherDict = zip(listofNames, flat_list)   
 weatherDict = OrderedDict(weatherDict)
     
