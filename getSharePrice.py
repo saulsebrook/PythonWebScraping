@@ -14,21 +14,21 @@ soup = bs4.BeautifulSoup(res.text, features="html.parser")
 
 soup1 = bs4.BeautifulSoup(res1.text, features="html.parser")
 
-
 spans = soup.find('span', class_ ='push-data aktien-big-font text-nowrap')
 price = spans.text
 print '\n\n\nAirbus share price is ' + price + 'EUR'
 
 euro = soup1.find('span', class_ ='ccOutputRslt')
 conversion = euro.text
-#print conversion
+
 rates = re.findall(r'\d+\.\d+', conversion)
-#print rates
+
 rate = rates[0]
-#print rate
+
 totalPrice = float(rate) * float(price)
 audTotal = float(totalPrice) * 22
 formataudTotal = float("{0:.2f}".format(audTotal))
+
 print 'Current price in AUD is $' + str(totalPrice)
 print
 print 'For a total of 22 shares, total value is $' + str(formataudTotal) + '\n\n'
